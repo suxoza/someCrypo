@@ -40,10 +40,6 @@ final class Helper{
         
     }
 
-    public function getRates(){
-
-    }
-
     public function getCurrencyBlockChain(string $crypo) : object {
     	return json_decode(Curl::to(sprintf('https://www.bitgo.com/api/v2/%s/market/latest/', $crypo))->get())
     			->latest->currencies;
@@ -52,7 +48,7 @@ final class Helper{
     public function rates() : ?array {
 
     	$getValue = Cache::get("rates");
-    	if($getValue){
+    	if(!$getValue){
     		$expiresAt = now()->addDays(10);
     		$response = json_decode(Curl::to('https://api.exchangeratesapi.io/latest?base=USD')->get())->rates;
     		$gel = $this->getCurrencyGEL();

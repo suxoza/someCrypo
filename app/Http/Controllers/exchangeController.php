@@ -25,7 +25,9 @@ class exchangeController extends Controller{
     	try{
     		$callBack();
     	}catch(\Exception $ex){
-    		echo $ex->getMessage();
+    		echo $ex->getFile()."<br>";
+            echo $ex->getLine()."<br>";
+            echo $ex->getMessage();
    			//return response()->json($ex);
     	}
     }
