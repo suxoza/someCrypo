@@ -15,7 +15,7 @@ class ExchangeModel extends Model{
 
 	public function getRates(string $from, array $to) : ?Array {
 		$rates = $this->service->rates();
-		
+		$this->pre($rates);
 		$currencyAsKey = strtoupper($from);
 		$result = [];
 		foreach($to as $value){

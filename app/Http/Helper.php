@@ -46,7 +46,7 @@ final class Helper{
     }
 
     public function rates() : ?array {
-
+    	//Cache::delete("rates");
     	$getValue = Cache::get("rates");
     	if(!$getValue){
     		$expiresAt = now()->addDays(10);
