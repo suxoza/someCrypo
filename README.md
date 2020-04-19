@@ -1,3 +1,5 @@
+for more info see *.mp4 files
+
 	instalation: 
 		git clone {link} 
 		composer install
