@@ -66,9 +66,6 @@ final class Helper{
 		$wsdl = 'http://nbg.gov.ge/currency.wsdl';
 		$client = new \SoapClient($wsdl, ['cache_wsdl' => WSDL_CACHE_NONE]);
 		return $client->GetCurrency('USD');
-    		
-
-
     }
   	
 

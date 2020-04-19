@@ -29,7 +29,7 @@ class ExchangeModel extends Model{
 		
 	}
 
-	public function saveRate(int $fiatID, array $rates){
+	public function saveRate(int $fiatID, array $rates) : void {
 		$insertArray = [];
 		foreach($rates as $key => $value){
 			$criptoID = array_search($key, $this->service->currencyList['crypo']);
@@ -43,7 +43,7 @@ class ExchangeModel extends Model{
 		$this->pre($rates);
 	}
 
-	public function getChangeInfo(string $cryptoCurrency, int $fromDate, int $toDate){
+	public function getChangeInfo(string $cryptoCurrency, int $fromDate, int $toDate) : void {
 		$this->criptoID = array_search($cryptoCurrency, $this->service->currencyList['crypo']);
 		$from = $this->selectTemp($fromDate, 'from');
 		if(!$from)
